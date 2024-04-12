@@ -1,0 +1,38 @@
+.container {
+  padding: 20px;
+
+  border: 1px solid #333;
+  border-radius: 10px;
+  width: 300px;
+}
+
+.formVlaue {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.contactItem {
+  border-radius: 5px;
+  border: 2px solid #333;
+  padding: 10px 10px;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.contactButton {
+  padding: 10px 30px;
+  border-radius: 10px;
+  border: none;
+  background-color: rgb(77, 77, 215);
+  color: #fff;
+}
+
+.error {
+  color: red;
+}

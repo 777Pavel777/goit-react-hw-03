@@ -1,0 +1,13 @@
+.iconUser {
+  margin-right: 10px;
+}
+
+.contactItem {
+  margin-bottom: 10px;
+}
+
+.btnContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
