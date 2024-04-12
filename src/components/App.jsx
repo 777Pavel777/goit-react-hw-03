@@ -3,6 +3,7 @@ import SearchBox from './searchBox/SearchBox';
 import ContactList from './contactList/ContactList';
 import Contacts from '../contacts.json';
 import { useEffect, useState } from 'react';
+import { nanoid } from 'nanoid';
 
 import css from '../components/App.module.css';
 
@@ -35,10 +36,12 @@ export default function App() {
     window.localStorage.setItem('saved-contacts', JSON.stringify(contacts));
   }, [contacts]);
 
+  const initialValues = { id: nanoid(), name: '', number: '' };
+
   return (
     <div className={css.container}>
       <h1>Phonebook</h1>
-      <ContactForm onAdd={handleAddContact} />
+      <ContactForm onAdd={handleAddContact} Values={initialValues} />
       <SearchBox value={search} onSearch={handleSearchChange} />
       <ContactList contacts={filteredContacts} onDelete={handleDeleteContact} />
     </div>
