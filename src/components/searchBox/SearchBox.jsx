@@ -4,8 +4,13 @@ export default function SearchBox({ value, onSearch }) {
   return (
     <>
       <div className={css.searchContainer}>
-        <p>Find contacts by name</p>
-        <input type="text" value={value} onChange={onSearch} />
+        <p className={css.titleSearch}>Find contacts by name</p>
+        <input
+          className={css.searchBox}
+          type="text"
+          value={value}
+          onChange={onSearch}
+        />
       </div>
     </>
   );

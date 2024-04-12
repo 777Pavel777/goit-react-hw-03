@@ -10,8 +10,7 @@ const userSchema = Yup.object().shape({
     .max(50, 'Too long!')
     .required('Required!'),
   number: Yup.string()
-    .min(8, 'Too short!')
-    .max(50, 'Too long!')
+    .matches(/^\d{3}-\d{2}-\d{2}$/, 'Invalid phone number format "111-22-22"')
     .required('Required!'),
 });
 
@@ -30,13 +29,17 @@ export default function ContactForm({ onAdd }) {
       onSubmit={handleSubmit}
     >
       <Form className={css.container}>
-        <div className={css.formVlaue}>
-          <label className={css.textItem}>Name</label>
+        <div className={css.formValue}>
+          <label htmlFor={nameId} className={css.textItem}>
+            Name
+          </label>
           <Field className={css.contactItem} name="name" id={nameId} />
           <ErrorMessage className={css.error} name="name" component="span" />
         </div>
-        <div className={css.formVlaue}>
-          <label className={css.textItem}>Number</label>
+        <div className={css.formValue}>
+          <label htmlFor={numberId} className={css.textItem}>
+            Number
+          </label>
           <Field className={css.contactItem} name="number" id={numberId} />
           <ErrorMessage className={css.error} name="number" component="span" />
         </div>

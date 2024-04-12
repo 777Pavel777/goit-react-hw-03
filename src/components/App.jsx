@@ -26,14 +26,13 @@ export default function App() {
   );
 
   const handleDeleteContact = contactId => {
-    const updatedContacts = contacts.filter(
-      contact => contact.id !== contactId
-    );
-    setContacts(updatedContacts);
+    setContacts(prevContacts => {
+      return prevContacts.filter(contact => contact.id !== contactId);
+    });
   };
 
   useEffect(() => {
-    localStorage.setItem('saved-contacts', JSON.stringify(contacts));
+    window.localStorage.setItem('saved-contacts', JSON.stringify(contacts));
   }, [contacts]);
 
   return (

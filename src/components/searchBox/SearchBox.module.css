@@ -1,3 +1,15 @@
 .searchContainer {
   padding: 20px 0;
 }
+
+.titleSearch {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.searchBox {
+  width: 330px;
+  padding: 5px;
+  border-radius: 7px;
+  border: 1px solid #333;
+}
