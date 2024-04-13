@@ -14,7 +14,9 @@ export default function App() {
   });
 
   const handleAddContact = newContact => {
-    setContacts([...contacts, newContact]);
+    setContacts(prevContacts => {
+      return [...prevContacts, { ...newContact, id: nanoid() }];
+    });
   };
 
   const [search, setSearch] = useState('');
@@ -36,12 +38,10 @@ export default function App() {
     window.localStorage.setItem('saved-contacts', JSON.stringify(contacts));
   }, [contacts]);
 
-  const initialValues = { id: nanoid(), name: '', number: '' };
-
   return (
     <div className={css.container}>
       <h1>Phonebook</h1>
-      <ContactForm onAdd={handleAddContact} Values={initialValues} />
+      <ContactForm onAdd={handleAddContact} />
       <SearchBox value={search} onSearch={handleSearchChange} />
       <ContactList contacts={filteredContacts} onDelete={handleDeleteContact} />
     </div>

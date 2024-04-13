@@ -13,7 +13,7 @@ const userSchema = Yup.object().shape({
     .required('Required!'),
 });
 
-export default function ContactForm({ onAdd, Values }) {
+export default function ContactForm({ onAdd }) {
   const handleSubmit = (value, actions) => {
     onAdd(value);
     actions.resetForm();
@@ -23,7 +23,7 @@ export default function ContactForm({ onAdd, Values }) {
   const numberId = useId();
   return (
     <Formik
-      initialValues={Values}
+      initialValues={{ name: '', number: '' }}
       validationSchema={userSchema}
       onSubmit={handleSubmit}
     >
